@@ -9,7 +9,7 @@ import pl.wsbproject.medicalsystem.service.PatientService;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/patient")
+@RequestMapping(path = "api/patient")
 public class PatientController {
 
 
@@ -20,16 +20,25 @@ public class PatientController {
         this.patientService = patientService;
     }
 
-    @GetMapping
+    @GetMapping(path = "/list")
     public List<Patient> getPatients() {
         return patientService.getPatients();
     }
 
-    @PostMapping
+    @PostMapping(path = "/register")
     public void registerNewPatient(@RequestBody Patient patient){
         patientService.addNewPatient(patient);
     }
-    @DeleteMapping(path = "{patientId}")
+
+    @PutMapping(path = "/update/{patientId}")
+    public void updatePatient(@PathVariable("patientId") Long patientId,
+                              @RequestParam(required = false) String name,
+                              @RequestParam(required = false) String email){
+        patientService.updatePatient(patientId, name, email);
+
+    }
+
+    @DeleteMapping(path = "/delete/{patientId}")
     public void deletePatient(@PathVariable("patientId") Long patientId){
         patientService.deletePatient(patientId);
     }

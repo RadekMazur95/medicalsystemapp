@@ -19,7 +19,7 @@ public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @Column(name = "appointment_duration")
     private LocalTime appointmentDuration;
     @Column(name = "appointment_date")
