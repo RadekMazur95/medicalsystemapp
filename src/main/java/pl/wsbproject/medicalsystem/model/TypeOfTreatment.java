@@ -22,8 +22,9 @@ public class TypeOfTreatment {
     private int id;
     private String name;
 
-    @OneToMany(mappedBy = "typeOfTreatment", cascade = CascadeType.ALL)
-    private List<Treatment> treatments = new ArrayList<>();
+    @OneToMany(targetEntity = Treatment.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "tp_fk", referencedColumnName = "id")
+    private List<Treatment> treatments;
 
     public TypeOfTreatment(String name) {
         this.name = name;

@@ -1,9 +1,14 @@
 package pl.wsbproject.medicalsystem.controler;
 
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.wsbproject.medicalsystem.dto.RegisterAppointment;
 import pl.wsbproject.medicalsystem.model.Appointment;
+import pl.wsbproject.medicalsystem.model.Patient;
+import pl.wsbproject.medicalsystem.repository.AppointmentRepository;
+import pl.wsbproject.medicalsystem.repository.PatientRepository;
 import pl.wsbproject.medicalsystem.service.AppointmentService;
 
 import java.util.List;
@@ -11,6 +16,9 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api/appointment")
 public class AppointmentController {
+
+    @Autowired
+    private PatientRepository patientRepository;
 
     @Autowired
     private final AppointmentService appointmentService;
@@ -22,6 +30,11 @@ public class AppointmentController {
     @GetMapping(path = "/list")
     public List<Appointment> getAppointment(){
         return appointmentService.getAppointments();
+    }
+
+    @PostMapping(path = "/register")
+    public Patient registerNewAppointment(@RequestBody RegisterAppointment registerAppointment){
+        return patientRepository.save(registerAppointment.getPatient());
     }
 
     @PostMapping(path = "/add")

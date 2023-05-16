@@ -31,7 +31,7 @@ public class Drug {
     private String dosage;
 
     @ManyToMany(mappedBy = "drugs")
-    private List<Examination> examinationList = new ArrayList<>();
+    private List<Examination> examinationList;
 
     public Drug(String name, String drugForm) {
         this.name = name;

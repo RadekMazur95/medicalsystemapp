@@ -19,25 +19,26 @@ public class PatientConfig {
 
             Patient patient1 = new Patient(
                     950503021L,
-                    "Radek",
-                    "Mazur",
+                    "Wiktor",
+                    "Nowak",
                     LocalDate.of(1995, 04, 07),
-                    "Jacowskiego",
-                    60153L,
-                    "Poznan",
-                    602532132L,
-                    "radek@gmail.com"
+                    "Przybyszewskiego",
+                    50053L,
+                    "Polkowice",
+                    604532132L,
+                    "wiktor@gmail.com"
+
             );
             Patient patient2 = new Patient(
-                    940203921L,
-                    "Aleksandra",
-                    "Mazur",
-                    LocalDate.of(1994, 05, 04),
+                    980203921L,
+                    "Karolina",
+                    "Klos",
+                    LocalDate.of(1984, 04, 01),
                     "Gowinskiego",
                     60148L,
-                    "ZielonaGora",
+                    "Zielona Gora",
                     640231456L,
-                    "ola@gmail.com"
+                    "karola@gmail.com"
             );
 
             repository.saveAll(

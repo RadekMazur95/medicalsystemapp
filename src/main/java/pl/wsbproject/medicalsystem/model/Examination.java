@@ -33,8 +33,6 @@ public class Examination {
     private long interview;
     private String diagnosis;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Patient patient;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -42,7 +40,7 @@ public class Examination {
             joinColumns = { @JoinColumn(name = "examination_id") },
             inverseJoinColumns = { @JoinColumn(name = "drug_id") }
     )
-    private List<Drug> drugs = new ArrayList<>();
+    private List<Drug> drugs;
 
 
     public Examination(LocalDate examinationDate, LocalTime examinationTime, double examinationPrice, long interview, String diagnosis) {
