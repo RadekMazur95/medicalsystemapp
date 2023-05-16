@@ -19,7 +19,8 @@ public class MedicalsystemApplication {
 
 
 
-      /*  Patient patient = new Patient();
+
+  /*      Patient patient = new Patient();
         Appointment appointment = new Appointment();
         patient.setPesel(950504030);
         patient.setName("Radek");
@@ -28,8 +29,7 @@ public class MedicalsystemApplication {
 
         appointment.setAppointmentDate(LocalDate.of(2023,5,13));
         appointment.setAppointmentDuration(LocalTime.of(7,15));
-*/
-
+  */
     }
 
 
