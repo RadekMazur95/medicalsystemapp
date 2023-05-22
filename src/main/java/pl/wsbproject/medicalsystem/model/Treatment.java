@@ -28,13 +28,6 @@ public class Treatment {
     @Column(name = "treatment_date")
     private LocalDate treatmentDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_of_treatment_id")
-    private TypeOfTreatment typeOfTreatment;
 
     public Treatment(double treatmentPrice, LocalTime treatmentDuration, LocalDate treatmentDate) {
         this.treatmentPrice = treatmentPrice;

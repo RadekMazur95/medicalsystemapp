@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 
+@Data
 @Setter
 @Getter
 @ToString
@@ -24,10 +25,6 @@ public class Appointment {
     private LocalTime appointmentDuration;
     @Column(name = "appointment_date")
     private LocalDate appointmentDate;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
 
     public Appointment(LocalTime appointmentDuration, LocalDate appointmentDate) {
         this.appointmentDuration = appointmentDuration;

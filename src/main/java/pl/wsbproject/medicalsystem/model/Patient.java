@@ -6,9 +6,9 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Entity
 @ToString
 @Setter
@@ -35,14 +35,17 @@ public class Patient {
     private long phoneNumber;
     private String email;
 
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<Examination> examinations = new ArrayList<>();
+    @OneToMany(targetEntity = Examination.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "ep_fk", referencedColumnName = "id")
+    private List<Examination> examinations;
 
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<Appointment> appointments = new ArrayList<>();
+    @OneToMany(targetEntity = Appointment.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "ap_fk", referencedColumnName = "id")
+    private List<Appointment> appointments;
 
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<Treatment> treatments = new ArrayList<>();
+    @OneToMany(targetEntity = Treatment.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "tp_fk", referencedColumnName = "id")
+    private List<Treatment> treatments;
 
 
     public Integer getAge() {

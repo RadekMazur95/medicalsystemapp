@@ -20,10 +20,12 @@ public class TypeOfTreatment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "typeOfTreatment", cascade = CascadeType.ALL)
-    private List<Treatment> treatments = new ArrayList<>();
+    @OneToMany(targetEntity = Treatment.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "tp_fk", referencedColumnName = "id")
+    private List<Treatment> treatments;
 
     public TypeOfTreatment(String name) {
         this.name = name;
