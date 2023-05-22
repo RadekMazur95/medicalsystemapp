@@ -20,6 +20,7 @@ public class TypeOfTreatment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(unique = true)
     private String name;
 
     @OneToMany(targetEntity = Treatment.class,cascade = CascadeType.ALL)

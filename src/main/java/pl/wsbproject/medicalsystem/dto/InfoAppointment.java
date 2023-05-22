@@ -13,14 +13,14 @@ import java.time.LocalTime;
 @ToString
 public class InfoAppointment {
 
+    private Long id;
+    private LocalTime appointmentDuration;
+    private LocalDate appointmentDate;
+
     public InfoAppointment(Long id, LocalTime appointmentDuration, LocalDate appointmentDate) {
         this.id = id;
         this.appointmentDuration = appointmentDuration;
         this.appointmentDate = appointmentDate;
     }
-
-    private Long id;
-    private LocalTime appointmentDuration;
-    private LocalDate appointmentDate;
 
 }
