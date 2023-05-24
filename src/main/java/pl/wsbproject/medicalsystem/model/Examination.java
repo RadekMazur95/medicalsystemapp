@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -34,13 +35,15 @@ public class Examination {
     private String diagnosis;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinTable(
             name = "prescribe_drug",
-            joinColumns = { @JoinColumn(name = "examination_id") },
-            inverseJoinColumns = { @JoinColumn(name = "drug_id") }
+            joinColumns = {
+                    @JoinColumn(name = "examination_id", referencedColumnName = "id") },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "drug_id", referencedColumnName = "id") }
     )
-    private List<Drug> drugs;
+    private Set<Drug> drugs;
 
 
     public Examination(LocalDate examinationDate, LocalTime examinationTime, double examinationPrice, long interview, String diagnosis) {

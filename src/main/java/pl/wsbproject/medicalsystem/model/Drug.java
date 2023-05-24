@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -30,8 +31,8 @@ public class Drug {
     @Column(name = "dosage")
     private String dosage;
 
-    @ManyToMany(mappedBy = "drugs")
-    private List<Examination> examinationList;
+    @ManyToMany(mappedBy = "drugs", fetch = FetchType.LAZY)
+    private Set<Examination> examinationList;
 
     public Drug(String name, String drugForm) {
         this.name = name;

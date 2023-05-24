@@ -24,10 +24,16 @@ public class TreatmentController  {
         this.treatmentService = treatmentService;
     }
 
-    @PostMapping(path ="/register")
+    @PostMapping(path = "/register")
     public Patient registerTreatment(@RequestBody RegisterTreatment registerTreatment){
         return patientRepository.save(registerTreatment.getPatient());
     }
+
+    @DeleteMapping(path = "/delete/{treatmentId}")
+    public void deleteTreatment(@PathVariable("treatmentId") Integer treatmentId){
+        treatmentService.deleteTreatment(treatmentId);
+    }
+
 
 
 }
