@@ -4,7 +4,6 @@ package pl.wsbproject.medicalsystem.controler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.wsbproject.medicalsystem.dto.InfoAppointment;
-import pl.wsbproject.medicalsystem.dto.RegisterAppointment;
 import pl.wsbproject.medicalsystem.model.Patient;
 import pl.wsbproject.medicalsystem.repository.PatientRepository;
 import pl.wsbproject.medicalsystem.service.PatientService;
